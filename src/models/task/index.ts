@@ -10,10 +10,10 @@ import {
 import Project from "../project"; // Fix the import statement to use lowercase 'project' instead of 'Project'
 
 interface tasksI {
-  id: number;
+  id?: number;
   name: string;
   done: boolean;
-  projectid: number;
+  projectId?: number;
 }
 
 @Table({ modelName: "tasks" })
@@ -31,7 +31,7 @@ class Task extends Model<tasksI> {
 
   @ForeignKey(() => Project)
   @Column({ allowNull: false })
-  projectid!: number;
+  projectId!: number;
 
   @BelongsTo(() => Project)
   project!: Project;
